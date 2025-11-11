@@ -1,0 +1,214 @@
+body {/* Fuente un poco más legible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #f2c77f, #e6a75a, #d48e42); /* Tonos cálidos de arena y roca */
+    margin: 0;
+    color: #333; 
+}
+
+.chat-container {
+    width: 90%;
+    max-width: 700px; /* Un poco más ancho para mejor visualización */
+    background: rgba(255, 255, 255, 0.95); /* Fondo blanco semitransparente para que se vea el body */
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Borde sutil */
+}
+
+h1 {
+    text-align: center;
+    color: #333; /* Un gris oscuro */
+    padding: 18px;
+    border-bottom: 1px solid #e0e0e0; /* Un gris más claro para la línea */
+    margin: 0;
+    font-size: 1.8em;
+    background-color: #f0f0f0; /* Fondo ligeramente más claro para el título */
+}
+
+/* --- Estilos para la Selección de Modelo (NUEVO) --- */
+.model-selection {
+    padding: 12px 20px;
+    background-color: #fdfdfd; /* Fondo muy claro */
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.model-selection label {
+    font-weight: bold;
+    color: #555;
+    font-size: 0.95em;
+}
+
+#model-select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #b0b0b0; /* Borde más pronunciado */
+    cursor: pointer;
+    font-size: 0.95em;
+    background-color: #fff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra interior suave */
+    color: #333;
+}
+
+#model-select:focus {
+    outline: none;
+    border-color: #888;
+    box-shadow: 0 0 0 2px rgba(136, 136, 136, 0.2);
+}
+
+.status-message {
+    font-size: 0.85em;
+    color: #4a6fa5; /* Un azul océano más apagado */
+}
+
+.status-message.error {
+    color: #c43c3c; /* Un rojo tierra */
+    font-weight: bold;
+}
+/* --- Fin Estilos Selección de Modelo --- */
+
+
+.chat-box {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 450px; /* Un poco más de altura */
+    background-color: #fdfdfd; /* Un fondo casi blanco para el área de chat */
+}
+
+.message {
+    padding: 12px 18px; /* Más padding */
+    margin-bottom: 12px;
+    border-radius: 25px; /* Más redondeado */
+    line-height: 1.5;
+    max-width: 80%; /* Más espacio para el texto */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra suave para las burbujas */
+}
+
+.user-message {
+    background-color: #4a6fa5; /* Azul profundo del Atlántico */
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+    border-bottom-right-radius: 8px; /* Un lado menos redondeado */
+}
+
+.bot-message {
+    background-color: #e6e6e6; /* Un gris muy claro, casi blanco, como la arena clara */
+    color: #333;
+    align-self: flex-start;
+    margin-right: auto;
+    border-bottom-left-radius: 8px; /* Un lado menos redondeado */
+}
+
+.input-container {
+    display: flex;
+    padding: 15px 20px; /* Más padding */
+    border-top: 1px solid #e0e0e0;
+    background-color: #f7f7f7; /* Fondo ligeramente grisáceo */
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 12px 18px;
+    border: 1px solid #bbb; /* Borde más oscuro */
+    border-radius: 25px;
+    margin-right: 12px;
+    font-size: 1.05em;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08); /* Sombra interior sutil */
+}
+
+#user-input:focus {
+    outline: none;
+    border-color: #888;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08), 0 0 0 2px rgba(74, 111, 165, 0.2); /* Sombra azul al enfocar */
+}
+
+
+#send-button {
+    background-color: #8c4238; /* Un rojo volcánico profundo */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 12px 25px;
+    cursor: pointer;
+    font-size: 1.05em;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#send-button:hover {
+    background-color: #7a3a31; /* Un rojo ligeramente más oscuro al pasar el ratón */
+    transform: translateY(-1px); /* Efecto sutil de levantamiento */
+}
+
+#send-button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el mensaje de carga */
+.bot.loading {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+.bot.error {
+    background-color: #c43c3c; /* Rojo tierra para errores */
+    color: white;
+}
+/* --- Estilos para los elementos SVG del desierto --- */
+.desert-element-left,
+.desert-element-right {
+    position: absolute; /* Posicionamiento absoluto respecto al body */
+    width: 80px; /* Tamaño del cactus */
+    height: 80px;
+    z-index: 0; /* Asegurarse de que esté detrás del chat-container */
+    opacity: 0.2; /* Hacerlo semitransparente para que sea decorativo */
+    transform: rotate(15deg); /* Ligera rotación para un toque artístico */
+    filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.1)); /* Sombra para darle profundidad */
+}
+
+.desert-element-left {
+    bottom: 50px; /* Posicionado abajo */
+    left: 10vw; /* A la izquierda, usando viewport width para adaptabilidad */
+    transform: rotate(-25deg); /* Rotación diferente para el de la izquierda */
+}
+
+.desert-element-right {
+    top: 30px; /* Posicionado arriba */
+    right: 8vw; /* A la derecha */
+    transform: scaleX(-1) rotate(10deg); /* Voltear horizontalmente y rotar */
+}
+
+/* Ajustes para pantallas más pequeñas si es necesario */
+@media (max-width: 768px) {
+    .desert-element-left {
+        width: 60px;
+        height: 60px;
+        bottom: 20px;
+        left: 5vw;
+        opacity: 0.15;
+    }
+    .desert-element-right {
+        width: 60px;
+        height: 60px;
+        top: 20px;
+        right: 5vw;
+        opacity: 0.15;
+    }
+    .chat-container {
+        width: 95%; 
+    }
+}
+
+body {
+    position: relative; 
+}

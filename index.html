@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ollama Chatbot Local con Selección de Modelo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <svg class="desert-element-left" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M50 0C27.5 0 0 16.6667 0 50C0 83.3333 27.5 100 50 100C72.5 100 100 83.3333 100 50C100 16.6667 72.5 0 50 0Z" fill="#8c4238"/>
+    <circle cx="50" cy="50" r="48" stroke="#7a3a31" stroke-width="2"/>
+    <circle cx="30" cy="30" r="3" fill="#FFF" opacity="0.8"/>
+    <circle cx="70" cy="30" r="3" fill="#FFF" opacity="0.8"/>
+    <circle cx="50" cy="70" r="3" fill="#FFF" opacity="0.8"/>
+</svg>
+
+<svg class="desert-element-right" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M50 0C27.5 0 0 16.6667 0 50C0 83.3333 27.5 100 50 100C72.5 100 100 83.3333 100 50C100 16.6667 72.5 0 50 0Z" fill="#8c4238"/>
+    <circle cx="50" cy="50" r="48" stroke="#7a3a31" stroke-width="2"/>
+    <circle cx="30" cy="30" r="3" fill="#FFF" opacity="0.8"/>
+    <circle cx="70" cy="30" r="3" fill="#FFF" opacity="0.8"/>
+    <circle cx="50" cy="70" r="3" fill="#FFF" opacity="0.8"/>
+</svg>
+
+
+    <div class="chat-container">
+        <h1>Ollama Chatbot Local</h1>
+
+        <div class="model-selection">
+            <label for="model-select">Modelo:</label>
+            <select id="model-select" disabled>
+                <option>Cargando modelos...</option>
+            </select>
+            <div id="status-message" class="status-message"></div>
+        </div>
+        <div id="chat-box" class="chat-box">
+            <div class="message bot-message">Hola! Soy un modelo de lenguaje local, ¿cómo puedo ayudarte?</div>
+            </div>
+
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Escribe tu mensaje..." required>
+            <button id="send-button">Enviar</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
