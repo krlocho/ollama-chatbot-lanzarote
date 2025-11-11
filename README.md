@@ -27,4 +27,29 @@ Para ejecutar este chatbot, necesitas tener instalados y funcionando los siguien
 Sigue estos pasos para poner en marcha el chatbot en tu máquina local.
 
 ### 1. Clonar el Repositorio
+### 2. Iniciar el Backend (Ollama)
+
+Asegúrate de que el servicio de Ollama esté ejecutándose en segundo plano en http://localhost:11434.
+
+Bash
+# Si no está activo, ejecuta este comando:
+ollama serve
+### 3. Iniciar el Frontend (Servidor Web Local)
+
+Para servir los archivos HTML, CSS y JS, inicia un servidor web simple desde la carpeta del proyecto (requiere Python 3):
+
+Bash
+python3 -m http.server 8000
+### 4. Acceder al Chatbot
+
+Una vez que ambos servidores estén activos, abre tu navegador y navega a la siguiente dirección:
+
+http://localhost:8000/
+### 5. Configurar Modelo
+
+En la interfaz web:
+
+El menú desplegable "Modelo" se llenará automáticamente con todos los modelos que tengas descargados de Ollama.
+
+Selecciona el modelo (ej. mistral:latest) para iniciar la conversación.
 
